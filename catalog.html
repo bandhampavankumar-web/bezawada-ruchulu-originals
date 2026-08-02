@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Product Brochure | Bezawada Ruchulu Originals</title>
+  <meta name="description"
+    content="Explore the full digital menu of Bezawada Ruchulu Originals. Browse our complete range of authentic podis, traditional sweets, and special milk puddings.">
+
+  <!-- Styling Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Favicon / Tab Icon -->
+  <link rel="icon" type="image/png" href="Assets/Brand_logo.png">
+
+  <style>
+    /* Additional custom catalog page styles */
+    .catalog-hero {
+      text-align: center;
+      padding: var(--spacing-lg) var(--margin-desktop);
+      background-color: var(--color-surface-container-low);
+      border-bottom: 1px solid rgba(114, 121, 113, 0.1);
+    }
+
+    .catalog-title {
+      color: var(--color-primary);
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .catalog-desc {
+      color: var(--color-on-surface-variant);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .catalog-category-header {
+      border-bottom: 2px solid var(--color-secondary);
+      padding-bottom: var(--spacing-sm);
+      margin-top: var(--spacing-xl);
+      margin-bottom: var(--spacing-lg);
+      color: var(--color-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Catalog layout: structured menu-like list */
+    .catalog-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-md);
+      margin-bottom: var(--spacing-xl);
+    }
+
+    .catalog-row-item {
+      display: grid;
+      grid-template-columns: 100px 1fr 300px;
+      align-items: center;
+      gap: var(--spacing-md);
+      padding: var(--spacing-md);
+      background-color: var(--color-surface-container-lowest);
+      border: 1px solid var(--color-outline-variant);
+      border-radius: var(--border-radius-lg);
+      transition: var(--transition-smooth);
+    }
+
+    .catalog-row-item:hover {
+      border-color: rgba(199, 154, 56, 0.4);
+      box-shadow: 0 6px 12px rgba(90, 51, 27, 0.03);
+      transform: translateY(-2px);
+    }
+
+    .catalog-item-img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: var(--border-radius-full);
+      border: 1px solid rgba(90, 51, 27, 0.1);
+      background-color: var(--color-surface-container-low);
+    }
+
+    .catalog-item-details {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-xs);
+    }
+
+    .catalog-item-name {
+      color: var(--color-primary);
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .catalog-item-desc {
+      color: var(--color-on-surface-variant);
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    .catalog-item-prices {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-sm);
+      border-left: 1px solid rgba(90, 51, 27, 0.1);
+      padding-left: var(--spacing-md);
+    }
+
+    .catalog-price-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .catalog-price-tag {
+      font-family: 'Work Sans', sans-serif;
+      font-weight: 700;
+      color: var(--color-primary);
+    }
+
+    .catalog-price-tag span {
+      font-size: 12px;
+      text-decoration: line-through;
+      opacity: 0.4;
+      margin-left: var(--spacing-xs);
+    }
+
+    /* Responsive overrides for menu items */
+    @media (max-width: 900px) {
+      .catalog-row-item {
+        grid-template-columns: 80px 1fr;
+        gap: var(--spacing-md);
+      }
+
+      .catalog-item-prices {
+        grid-column: span 2;
+        border-left: none;
+        border-top: 1px solid rgba(90, 51, 27, 0.1);
+        padding-left: 0;
+        padding-top: var(--spacing-md);
+        margin-top: var(--spacing-xs);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .catalog-row-item {
+        grid-template-columns: 1fr;
+        text-align: center;
+        justify-items: center;
+      }
+
+      .catalog-item-prices {
+        grid-column: span 1;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Top Navigation Bar -->
+  <header>
+    <div class="nav-container">
+      <a class="nav-logo-link" href="index.html"
+        style="display: flex; align-items: center; gap: 12px; text-decoration: none; flex-shrink: 0;">
+        <img alt="Bezawada Ruchulu Originals Logo" class="logo-img" src="Assets/Brand_logo.png">
+        <span class="brand-name-text"
+          style="font-family: 'Source Serif 4', serif; font-size: 20px; font-weight: 700; color: var(--color-primary); letter-spacing: -0.01em; white-space: nowrap;">
+          <span class="brand-letter">B</span><span class="brand-expand brand-expand-1">ezawada</span>
+          <span class="brand-letter">R</span><span class="brand-expand brand-expand-2">uchulu</span>
+          <span class="brand-letter">O</span><span class="brand-expand brand-expand-3">riginals</span>
+        </span>
+      </a>
+      <nav class="nav-menu" id="navMenu">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link active" href="catalog.html">Spice Powders</a>
+        <a class="nav-link" href="index.html#sweets">Sweets & Delicacies</a>
+      </nav>
+
+      <div class="nav-right">
+        <!-- Live Search Bar -->
+        <div class="search-bar">
+          <span class="material-symbols-outlined" style="color: var(--color-outline);">search</span>
+          <input class="search-input" id="searchInput" placeholder="Search catalog..." type="text">
+        </div>
+
+        <!-- Cart Toggle Button -->
+        <button class="icon-btn" id="cartToggleBtn" aria-label="Open Shopping Cart">
+          <span class="material-symbols-outlined">shopping_cart</span>
+          <span class="cart-badge" id="cartCountBadge">0</span>
+        </button>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle Navigation Menu">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Header -->
+  <section class="catalog-hero">
+    <h2 class="font-headline-lg catalog-title">Our Complete Product Brochure</h2>
+    <p class="font-body-md catalog-desc">
+      Scroll through our complete authentic recipes. Prepared with 100% premium ingredients, zero preservatives, and
+      absolute culinary hygiene in Vijayawada.
+    </p>
+  </section>
+
+  <!-- Catalog List Container -->
+  <main class="container-max">
+
+    <!-- 1. SPICE POWDERS SECTION -->
+    <h3 class="font-headline-lg catalog-category-header" id="spices-section">Podi Varieties (Spice Powders)</h3>
+    <div class="catalog-list">
+
+      <!-- Putnala Podi -->
+      <div class="catalog-row-item product-card" data-name="putnala podi roasted gram flour" data-id="podi-putnala">
+        <img class="catalog-item-img" alt="Putnala Podi" src="Assets/Putnala_Podi.png">
+        <div class="catalog-item-details">
+          <h4 class="catalog-item-name">Putnala Podi</h4>
+          <p class="catalog-item-desc">A mild, aromatic roasted gram flour spice powder. Perfect when mixed with hot
+            ghee and rice, or sprinkled over dosas.</p>
+        </div>
+        <div class="catalog-item-prices">
+          <div class="catalog-price-row">
+            <span class="font-label-sm">100g Pack</span>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span class="catalog-price-tag">₹69 <span>₹89</span></span>
+              <button class="delicacy-add-btn add-to-cart-quick" data-id="podi-putnala-100"
+                data-name="Putnala Podi (100g)" data-price="69" data-img="Assets/Putnala_Podi.png" data-weight="100g"
+                style="margin-top: 0;">Add +</button>
+            </div>
+          </div>
+          <div class="catalog-price-row">
+            <span class="font-label-sm">250g Pack</span>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span class="catalog-price-tag">₹139 <span>₹179</span></span>
+              <button class="delicacy-add-btn add-to-cart-quick" data-id="podi-putnala-250"
+                data-name="Putnala Podi (250g)" data-price="139" data-img="Assets/Putnala_Podi.png" data-weight="250g"
+                style="margin-top: 0;">Add +</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Andhra Gunpowder -->
+      <div class="catalog-row-item product-card" data-name="andhra gunpowder karam podi" data-id="podi-gunpowder">
+        <img class="catalog-item-img" alt="Andhra Gunpowder" src="Assets/Andhra_Gunpowder.png">
+        <div class="catalog-item-details">
+          <h4 class="catalog-item-name">Andhra Gunpowder</h4>
+          <p class="catalog-item-desc">Our signature spicy lentil blend, slow-roasted to fiery perfection. A must-have
+            accompaniment for hot idlis and dosas.</p>
+        </div>
+        <div class="catalog-item-prices">
+          <div class="catalog-price-row">
+            <span class="font-label-sm">100g Pack</span>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span class="catalog-price-tag">₹79 <span>₹102</span></span>
+              <button class="delicacy-add-btn add-to-cart-quick" data-id="podi-gunpowder-100"
+                data-name="Andhra Gunpowder (100g)" data-price="79" data-img="Assets/Andhra_Gunpowder.png"
+                data-weight="100g" style="margin-top: 0;">Add +</button>
+            </div>
+          </div>
+          <div class="catalog-price-row">
+            <span class="font-label-sm">250g Pack</span>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span class="catalog-price-tag">₹159 <span>₹199</span></span>
+              <button class="delicacy-add-btn add-to-cart-quick" data-id="podi-gunpowder-250"
+                data-name="Andhra Gunpowder (250g)" data-price="159" data-img="Assets/Andhra_Gunpowder.png"
+                data-weight="250g" style="margin-top: 0;">Add +</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Karivepaku Karapodi -->
+      <div class="catalog-row-item product-card" data-name="karivepaku karapodi curry leaf" data-id="podi-karivepaku">
+        <img class="catalog-item-img" alt="Karivepaku Karapodi" src="Assets/Karivepaku_Karapodi.png">
+        <div class="catalog-item-details">
+          <h4 class="catalog-item-name">Karivepaku Karapodi</h4>
+          <p class="catalog-item-desc">Fresh, aromatic curry leaves roasted with lentils and spices. Rich in iron and
+            fibers, healthy and extremely delicious.</p>
+        </div>
+        <div class="catalog-item-prices">
+          <div class="catalog-price-row">
+            <span class="font-label-sm">100g Pack</span>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span class="catalog-price-tag">₹89 <span>₹115</span></span>
+              <button class="delicacy-add-btn add-to-cart-quick" data-id="podi-karivepaku-100"
+                data-name="Karivepaku Karapodi (100g)" data-price="89" data-img="Assets/Karivepaku_Karapodi.png"
+                data-weight="100g" style="margin-top: 0;">Add +</button>
+            </div>
+          </div>
+          <div class="catalog-price-row">
+            <span class="font-label-sm">250g Pack</span>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span class="catalog-price-tag">₹169 <span>₹211</span></span>
+              <button class="delicacy-add-btn add-to-cart-quick" data-id="podi-karivepaku-250"
+                data-name="Karivepaku Karapodi (250g)" data-price="169" data-img="Assets/Karivepaku_Karapodi.png"
+                data-weight="250g" style="margin-top: 0;">Add +</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dhinayala Karapodi -->
+      <div class="catalog-row-item product-card" data-name="dhinayala karapodi coriander seed" data-id="podi-dhinayala">
+        <img class="catalog-item-img" alt="Dhinayala Karapodi" src="Assets/Dhinayala_Karapodi.png">
+        <div class="catalog-item-details">
+          <h4 class="catalog-item-name">Dhinayala Karapodi</h4>
+          <p class="catalog-item-desc">Roasted coriander seeds blend providing a refreshing, herbaceous tangy flavor.
+            Ideal with idli, rice, and upma.</p>
+        </div>
+        <div class="catalog-item-prices">
+          <div class="catalog-price-row">
+            <span class="font-label-sm">100g Pack</span>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span class="catalog-price-tag">₹89 <span>₹115</span></span>
+              <button class="delicacy-add-btn add-to-cart-quick" data-id="podi-dhinayala-100"
+                data-name="Dhinayala Karapodi (100g)" data-price="89" data-img="Assets/Dhinayala_Karapodi.png"
+                data-weight="100g" style="margin-top: 0;">Add +</button>
+            </div>
+          </div>
+          <div class="catalog-price-row">
+            <span class="font-label-sm">250g Pack</span>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span class="catalog-price-tag">₹179 <span>₹230</span></span>
+              <button class="delicacy-add-btn add-to-cart-quick" data-id="podi-dhinayala-250"
+                data-name="Dhinayala Karapodi (250g)" data-price="179" data-img="Assets/Dhinayala_Karapodi.png"
+                data-weight="250g" style="margin-top: 0;">Add +</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Kandi Podi -->
+      <div class="catalog-row-item product-card" data-name="kandi podi roasted dal" data-id="podi-kandi">
+        <img class="catalog-item-img" alt="Kandi Podi" src="Assets/Kandi_Podi.png">
+        <div class="catalog-item-details">
+          <h4 class="catalog-item-name">Kandi Podi</h4>
+          <p class="catalog-item-desc">A classic Andhra roasted dal powder. Mix with hot ghee and rice for a comforting,
+            authentic home-style meal.</p>
+        </div>
+        <div class="catalog-item-prices">
+          <div class="catalog-price-row">
+            <span class="font-label-sm">100g Pack</span>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span class="catalog-price-tag">₹89 <span>₹115</span></span>
+              <button class="delicacy-add-btn add-to-cart-quick" data-id="podi-kandi-100" data-name="Kandi Podi (100g)"
+                data-price="89" data-img="Assets/Kandi_Podi.png" data-weight="100g" style="margin-top: 0;">Add
+                +</button>
+            </div>
+          </div>
+          <div class="catalog-price-row">
+            <span class="font-label-sm">250g Pack</span>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span class="catalog-price-tag">₹179 <span>₹230</span></span>
+              <button class="delicacy-add-btn add-to-cart-quick" data-id="podi-kandi-250" data-name="Kandi Podi (250g)"
+                data-price="179" data-img="Assets/Kandi_Podi.png" data-weight="250g" style="margin-top: 0;">Add
+                +</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nuvvu Karam -->
+      <div class="catalog-row-item product-card" data-name="nuvvu karam sesame seed" data-id="podi-nuvvu">
+        <img class="catalog-item-img" alt="Nuvvu Karam" src="Assets/Nuvvu_Karam.png">
+        <div class="catalog-item-details">
+          <h4 class="catalog-item-name">Nuvvu Karam</h4>
+          <p class="catalog-item-desc">A rich sesame spice powder providing a nutty aroma, high calcium content, and
+            delicious spicy heat.</p>
+        </div>
+        <div class="catalog-item-prices">
+          <div class="catalog-price-row">
+            <span class="font-label-sm">100g Pack</span>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span class="catalog-price-tag">₹99 <span>₹128</span></span>
+              <button class="delicacy-add-btn add-to-cart-quick" data-id="podi-nuvvu-100" data-name="Nuvvu Karam (100g)"
+                data-price="99" data-img="Assets/Nuvvu_Karam.png" data-weight="100g" style="margin-top: 0;">Add
+                +</button>
+            </div>
+          </div>
+          <div class="catalog-price-row">
+            <span class="font-label-sm">250g Pack</span>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span class="catalog-price-tag">₹199 <span>₹252</span></span>
+              <button class="delicacy-add-btn add-to-cart-quick" data-id="podi-nuvvu-250" data-name="Nuvvu Karam (250g)"
+                data-price="199" data-img="Assets/Nuvvu_Karam.png" data-weight="250g" style="margin-top: 0;">Add
+                +</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Puliogare Powder -->
+      <div class="catalog-row-item product-card" data-name="puliogare powder tamarind rice" data-id="podi-puliogare">
+        <img class="catalog-item-img" alt="Puliogare Powder" src="Assets/Puliyogare_Powder.png">
+        <div class="catalog-item-details">
+          <h4 class="catalog-item-name">Puliogare Powder</h4>
+          <p class="catalog-item-desc">Tangy, sweet and spicy tamarind rice mix. Just mix with boiled rice and peanuts
+            for temple-style Pulihora.</p>
+        </div>
+        <div class="catalog-item-prices">
+          <div class="catalog-price-row">
+            <span class="font-label-sm">100g Pack</span>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span class="catalog-price-tag">₹109 <span>₹141</span></span>
+              <button class="delicacy-add-btn add-to-cart-quick" data-id="podi-puliogare-100"
+                data-name="Puliogare Powder (100g)" data-price="109" data-img="Assets/Puliyogare_Powder.png"
+                data-weight="100g" style="margin-top: 0;">Add +</button>
+            </div>
+          </div>
+          <div class="catalog-price-row">
+            <span class="font-label-sm">250g Pack</span>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span class="catalog-price-tag">₹219 <span>₹279</span></span>
+              <button class="delicacy-add-btn add-to-cart-quick" data-id="podi-puliogare-250"
+                data-name="Puliogare Powder (250g)" data-price="219" data-img="Assets/Puliyogare_Powder.png"
+                data-weight="250g" style="margin-top: 0;">Add +</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nalla Karam -->
+      <div class="catalog-row-item product-card" data-name="nalla karam coriander black" data-id="podi-nallakaram">
+        <img class="catalog-item-img" alt="Nalla Karam" src="Assets/Nalla_Karam.png">
+        <div class="catalog-item-details">
+          <h4 class="catalog-item-name">Nalla Karam</h4>
+          <p class="catalog-item-desc">Traditional dark spice blend made with coriander seeds, black gram, tamarind, and
+            roasted garlic. Earthy and tangy.</p>
+        </div>
+        <div class="catalog-item-prices">
+          <div class="catalog-price-row">
+            <span class="font-label-sm">100g Pack</span>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span class="catalog-price-tag">₹109 <span>₹141</span></span>
+              <button class="delicacy-add-btn add-to-cart-quick" data-id="podi-nallakaram-100"
+                data-name="Nalla Karam (100g)" data-price="109" data-img="Assets/Nalla_Karam.png" data-weight="100g"
+                style="margin-top: 0;">Add +</button>
+            </div>
+          </div>
+          <div class="catalog-price-row">
+            <span class="font-label-sm">250g Pack</span>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span class="catalog-price-tag">₹229 <span>₹289</span></span>
+              <button class="delicacy-add-btn add-to-cart-quick" data-id="podi-nallakaram-250"
+                data-name="Nalla Karam (250g)" data-price="229" data-img="Assets/Nalla_Karam.png" data-weight="250g"
+                style="margin-top: 0;">Add +</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Kobbari Karam -->
+      <div class="catalog-row-item product-card" data-name="kobbari karam coconut black gram"
+        data-id="podi-kobbarikaram">
+        <img class="catalog-item-img" alt="Kobbari Karam" src="Assets/Kobbari_Karam.png">
+        <div class="catalog-item-details">
+          <h4 class="catalog-item-name">Kobbari Karam</h4>
+          <p class="catalog-item-desc">Delicious dry coconut flakes roasted with lentils and garlic. A sweet-savory
+            spice powder that elevates simple rice or breakfast items.</p>
+        </div>
+        <div class="catalog-item-prices">
+          <div class="catalog-price-row">
+            <span class="font-label-sm">100g Pack</span>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span class="catalog-price-tag">₹149 <span>₹199</span></span>
+              <button class="delicacy-add-btn add-to-cart-quick" data-id="podi-kobbarikaram-100"
+                data-name="Kobbari Karam (100g)" data-price="149" data-img="Assets/Kobbari_Karam.png" data-weight="100g"
+                style="margin-top: 0;">Add +</button>
+            </div>
+          </div>
+          <div class="catalog-price-row">
+            <span class="font-label-sm">250g Pack</span>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span class="catalog-price-tag">₹339 <span>₹435</span></span>
+              <button class="delicacy-add-btn add-to-cart-quick" data-id="podi-kobbarikaram-250"
+                data-name="Kobbari Karam (250g)" data-price="339" data-img="Assets/Kobbari_Karam.png" data-weight="250g"
+                style="margin-top: 0;">Add +</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 2. SWEETS SECTION -->
+    <h3 class="font-headline-lg catalog-category-header" id="sweets-section">Sweets</h3>
+    <div class="catalog-list">
+
+      <!-- Ravva Laddu -->
+      <div class="catalog-row-item sweet-card" data-name="ravva laddu semolina jaggery" data-id="sweet-ravva">
+        <img class="catalog-item-img" alt="Ravva Laddu" src="Assets/Ravva_Laddu.jpeg">
+        <div class="catalog-item-details">
+          <h4 class="catalog-item-name">Ravva Laddu</h4>
+          <p class="catalog-item-desc">Semolina (sooji) based spheres bound with pure ghee, sugar, coconut flakes,
+            cashews, and raisins.</p>
+        </div>
+        <div class="catalog-item-prices">
+          <div class="catalog-price-row">
+            <span class="font-label-sm">250g Pack</span>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span class="catalog-price-tag">₹149 <span>₹189</span></span>
+              <button class="delicacy-add-btn add-to-cart-quick" data-id="sweet-ravva-250"
+                data-name="Ravva Laddu (250g)" data-price="149" data-img="Assets/Ravva_Laddu.jpeg" data-weight="250g"
+                style="margin-top: 0;">Add +</button>
+            </div>
+          </div>
+          <div class="catalog-price-row">
+            <span class="font-label-sm">500g Pack</span>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span class="catalog-price-tag">₹219 <span>₹289</span></span>
+              <button class="delicacy-add-btn add-to-cart-quick" data-id="sweet-ravva-500"
+                data-name="Ravva Laddu (500g)" data-price="219" data-img="Assets/Ravva_Laddu.jpeg" data-weight="500g"
+                style="margin-top: 0;">Add +</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sunnundalu -->
+      <div class="catalog-row-item sweet-card" data-name="sunnundalu sweet urad dal" data-id="sweet-sunnundalu">
+        <img class="catalog-item-img" alt="Sunnundalu" src="Assets/Sunnundalu.jpeg">
+        <div class="catalog-item-details">
+          <h4 class="catalog-item-name">Sunnundalu</h4>
+          <p class="catalog-item-desc">Prepared from fine black gram dal flour, roasted ghee, and jaggery. An authentic
+            protein-rich Andhra treat.</p>
+        </div>
+        <div class="catalog-item-prices">
+          <div class="catalog-price-row">
+            <span class="font-label-sm">250g Pack</span>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span class="catalog-price-tag">₹189 <span>₹249</span></span>
+              <button class="delicacy-add-btn add-to-cart-quick" data-id="sweet-sunnundalu-250"
+                data-name="Sunnundalu (250g)" data-price="189" data-img="Assets/Sunnundalu.jpeg" data-weight="250g"
+                style="margin-top: 0;">Add +</button>
+            </div>
+          </div>
+          <div class="catalog-price-row">
+            <span class="font-label-sm">500g Pack</span>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span class="catalog-price-tag">₹309 <span>₹399</span></span>
+              <button class="delicacy-add-btn add-to-cart-quick" data-id="sweet-sunnundalu-500"
+                data-name="Sunnundalu (500g)" data-price="309" data-img="Assets/Sunnundalu.jpeg" data-weight="500g"
+                style="margin-top: 0;">Add +</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 3. SPECIAL DELICACIES SECTION -->
+    <h3 class="font-headline-lg catalog-category-header" id="delicacies-section">Special Delicacies</h3>
+    <div class="catalog-list">
+
+      <!-- Coco Bliss -->
+      <div class="catalog-row-item delicacy-item" data-name="coco bliss pudding coconut dessert"
+        data-id="delicacy-cocobliss">
+        <img class="catalog-item-img" alt="Coco Bliss" src="Assets/cocoBliss.jpeg">
+        <div class="catalog-item-details">
+          <h4 class="catalog-item-name">Coco Bliss</h4>
+          <p class="catalog-item-desc">A premium transparent milk pudding dessert prepared with fresh coconut cream.
+            Mildly sweet and extremely cooling.</p>
+        </div>
+        <div class="catalog-item-prices">
+          <div class="catalog-price-row">
+            <span class="font-label-sm">100g Pack</span>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span class="catalog-price-tag">₹79 <span>₹100</span></span>
+              <button class="delicacy-add-btn add-to-cart-quick" data-id="delicacy-cocobliss"
+                data-name="Coco Bliss (100g)" data-price="79" data-img="Assets/cocoBliss.jpeg" data-weight="100g"
+                style="margin-top: 0;">Add +</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Junnu -->
+      <div class="catalog-row-item delicacy-item" data-name="junnu steamed milk pudding colostrum"
+        data-id="delicacy-junnu">
+        <img class="catalog-item-img" alt="Junnu" src="Assets/Junnu.png">
+        <div class="catalog-item-details">
+          <h4 class="catalog-item-name">Junnu</h4>
+          <p class="catalog-item-desc">Steamed milk pudding made with premium colostrum milk, sweetened with organic
+            jaggery, black pepper, and cardamom.</p>
+        </div>
+        <div class="catalog-item-prices">
+          <div class="catalog-price-row">
+            <span class="font-label-sm">100g Pack</span>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span class="catalog-price-tag">₹99 <span>₹120</span></span>
+              <button class="delicacy-add-btn add-to-cart-quick" data-id="delicacy-junnu-100" data-name="Junnu (100g)"
+                data-price="99" data-img="Assets/Junnu.png" data-weight="100g" style="margin-top: 0;">Add +</button>
+            </div>
+          </div>
+          <div class="catalog-price-row">
+            <span class="font-label-sm">500g Pack</span>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span class="catalog-price-tag">₹499 <span>₹600</span></span>
+              <button class="delicacy-add-btn add-to-cart-quick" data-id="delicacy-junnu-500" data-name="Junnu (500g)"
+                data-price="499" data-img="Assets/Junnu.png" data-weight="500g" style="margin-top: 0;">Add +</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container-max footer-top">
+      <div class="footer-col">
+        <h3 class="font-headline-lg">Bezawada Ruchulu Originals</h3>
+        <p class="footer-desc">
+          Traditional Taste, Authentic Goodness. 100% Homemade and Vegetarian recipes from the heart of Vijayawada.
+        </p>
+        <div class="footer-social-links">
+          <a class="footer-social-btn" href="https://instagram.com/bezawadaruchulu.originals" target="_blank"
+            rel="noopener" aria-label="Instagram">
+            <span class="material-symbols-outlined">camera_alt</span>
+          </a>
+          <a class="footer-social-btn" href="https://wa.me/919061839999" target="_blank" rel="noopener"
+            aria-label="WhatsApp">
+            <span class="material-symbols-outlined">chat</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="font-title-md">Shop</h4>
+        <ul class="footer-links">
+          <li class="footer-link-item"><a href="index.html#spices">Spice Powders</a></li>
+          <li class="footer-link-item"><a href="index.html#sweets">Authentic Sweets</a></li>
+          <li class="footer-link-item"><a href="index.html#sweets">Special Delicacies</a></li>
+          <li class="footer-link-item"><a href="Assets/Product_Catalog.png"
+              download="Bezawada_Ruchulu_Originals_Catalog.png">Download Brochure Image</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="font-title-md">Quick Links</h4>
+        <ul class="footer-links">
+          <li class="footer-link-item"><a href="https://wa.me/919061839999">Bulk Orders</a></li>
+          <li class="footer-link-item"><a href="https://wa.me/919061839999">Support</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="font-title-md">Newsletter</h4>
+        <p class="footer-newsletter-text font-body-md" style="font-size: 14px;">Get updates on seasonal specials,
+          recipes, and discounts.</p>
+        <form class="newsletter-form" id="newsletterForm">
+          <input class="newsletter-input" placeholder="Your email" type="email" required>
+          <button class="newsletter-btn" type="submit" aria-label="Subscribe">
+            <span class="material-symbols-outlined">send</span>
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="font-label-sm footer-copyright">© 2026 Bezawada Ruchulu Originals. All Rights Reserved. Traditional
+        Taste, Authentic Goodness.</p>
+      <p class="font-label-sm footer-powered-by">Powered by <a href="https://www.mitrai.one/" target="_blank"
+          rel="noopener">mitrai.one</a></p>
+    </div>
+  </footer>
+
+  <!-- Slide-out Shopping Cart Drawer -->
+  <div class="cart-drawer-overlay" id="cartDrawerOverlay"></div>
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <h3 class="font-title-md cart-title">Your Bag</h3>
+      <button class="close-cart-btn" id="closeCartBtn" aria-label="Close Shopping Cart">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+
+    <!-- Cart Items Scroll Area -->
+    <div class="cart-items-wrapper" id="cartItemsContainer">
+      <!-- Items dynamically populated via JS -->
+      <p class="empty-cart-msg">Your bag is currently empty.</p>
+    </div>
+
+    <!-- Cart Summary & WhatsApp checkout footer -->
+    <div class="cart-footer">
+      <div class="cart-total-row">
+        <span class="cart-total-label">Subtotal</span>
+        <span class="cart-total-val" id="cartSubtotal">₹0</span>
+      </div>
+      <p class="font-label-sm" id="freeDeliveryNotice"
+        style="color: var(--color-secondary); text-align: right; margin-bottom: 4px; font-weight: 600;">Add ₹1000 for
+        Free Delivery</p>
+      <button class="cart-checkout-btn" id="checkoutBtn">
+        <span class="material-symbols-outlined" style="font-size: 20px;">chat</span>
+        Checkout on WhatsApp
+      </button>
+    </div>
+  </div>
+
+  <!-- JavaScript file -->
+  <script src="script.js"></script>
+</body>
+
+</html>

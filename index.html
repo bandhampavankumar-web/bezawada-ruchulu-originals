@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bezawada Ruchulu Originals | Authentic Traditional Spices & Sweets</title>
+  <meta name="description"
+    content="Discover the authentic taste of tradition with Bezawada Ruchulu Originals. 100% vegetarian spice powders, sweets, and delicacies made with premium ingredients in Vijayawada.">
+
+  <!-- Styling Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Favicon / Tab Icon -->
+  <link rel="icon" type="image/png" href="Assets/Brand_logo.png">
+</head>
+
+<body>
+
+  <!-- Top Navigation Bar -->
+  <header>
+    <div class="nav-container">
+      <a class="nav-logo-link" href="#"
+        style="display: flex; align-items: center; gap: 12px; text-decoration: none; flex-shrink: 0;">
+        <img alt="Bezawada Ruchulu Originals Logo" class="logo-img" src="Assets/Brand_logo.png">
+        <span class="brand-name-text"
+          style="font-family: 'Source Serif 4', serif; font-size: 20px; font-weight: 700; color: var(--color-primary); letter-spacing: -0.01em; white-space: nowrap;">
+          <span class="brand-letter">B</span><span class="brand-expand brand-expand-1">ezawada</span>
+          <span class="brand-letter">R</span><span class="brand-expand brand-expand-2">uchulu</span>
+          <span class="brand-letter">O</span><span class="brand-expand brand-expand-3">riginals</span>
+        </span>
+      </a>
+      <nav class="nav-menu" id="navMenu">
+        <a class="nav-link active" href="#">Home</a>
+        <a class="nav-link" href="#spices">Spice Powders</a>
+        <a class="nav-link" href="#sweets">Sweets & Delicacies</a>
+      </nav>
+
+      <div class="nav-right">
+        <!-- Live Search Bar -->
+        <div class="search-bar">
+          <span class="material-symbols-outlined" style="color: var(--color-outline);">search</span>
+          <input class="search-input" id="searchInput" placeholder="Search spices, sweets..." type="text">
+        </div>
+
+        <!-- Cart Toggle Button -->
+        <button class="icon-btn" id="cartToggleBtn" aria-label="Open Shopping Cart">
+          <span class="material-symbols-outlined">shopping_cart</span>
+          <span class="cart-badge" id="cartCountBadge">0</span>
+        </button>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle Navigation Menu">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-bg-overlay"></div>
+      <div class="container-max hero-container">
+        <div class="hero-content">
+          <div class="verified-badge">
+            <span class="material-symbols-outlined icon-filled">verified</span>
+            <span class="font-label-sm uppercase">100% Vegetarian &amp; Authentic</span>
+          </div>
+          <h2 class="font-display-lg hero-title">
+            Traditional Taste,<br>
+            <span>Authentic Goodness</span>
+          </h2>
+          <p class="font-body-lg hero-desc">
+            Home-style recipes made with premium ingredients &amp; timeless care. Bringing the rich culinary heritage of
+            Bezawada directly to your kitchen.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#spices">Shop Collections</a>
+            <a class="btn btn-secondary" href="catalog.html">View Catalog</a>
+          </div>
+        </div>
+        <div class="hero-image-wrapper">
+          <div class="hero-circle-bg"></div>
+          <!-- Main Hero Image (local container composition) -->
+          <img class="hero-img" alt="Composition of traditional Indian spice powders"
+            src="Assets/Karivepaku Karapodi - product image.png">
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits Grid -->
+    <section class="container-max" style="padding: 40px 0;">
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-icon-wrapper">
+            <span class="material-symbols-outlined">eco</span>
+          </div>
+          <h3 class="font-title-md benefit-title">No Preservatives</h3>
+          <p class="font-body-md" style="color: var(--color-on-surface-variant); font-size: 14px;">100% natural spices,
+            straight from nature to your plate.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon-wrapper">
+            <span class="material-symbols-outlined">science</span>
+          </div>
+          <h3 class="font-title-md benefit-title">No Artificial Colors</h3>
+          <p class="font-body-md" style="color: var(--color-on-surface-variant); font-size: 14px;">Real vibrant shades
+            coming solely from premium raw ingredients.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon-wrapper">
+            <span class="material-symbols-outlined">inventory_2</span>
+          </div>
+          <h3 class="font-title-md benefit-title">Hygienically Packed</h3>
+          <p class="font-body-md" style="color: var(--color-on-surface-variant); font-size: 14px;">Processed in small
+            batches with strict quality standards.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon-wrapper">
+            <span class="material-symbols-outlined">favorite</span>
+          </div>
+          <h3 class="font-title-md benefit-title">Made with Love</h3>
+          <p class="font-body-md" style="color: var(--color-on-surface-variant); font-size: 14px;">Prepared using
+            traditional home recipes passed through generations.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Spice Powders Section (Podis) -->
+    <section class="products-section" id="spices">
+      <div class="container-max">
+        <div class="section-header-row">
+          <div class="section-title-group">
+            <h2 class="font-headline-lg">Podi Varieties</h2>
+            <p class="font-body-md">Traditional Spice Powders for an Instant Flavor Burst</p>
+          </div>
+          <div class="section-badges">
+            <span class="font-label-sm badge">Authentic Recipes</span>
+            <span class="font-label-sm badge badge-highlight">Best Sellers</span>
+          </div>
+        </div>
+
+        <!-- Products Grid -->
+        <div class="products-grid" id="spicesGrid">
+
+          <!-- Putnala Podi -->
+          <div class="product-card" data-name="putnala podi" data-id="podi-putnala">
+            <div class="product-img-container">
+              <img class="product-card-img" alt="Putnala Podi" src="Assets/Putnala_Podi.png">
+              <span class="font-label-sm ribbon ribbon-popular">Popular</span>
+            </div>
+            <h3 class="font-title-md product-name">Putnala Podi</h3>
+            <div class="price-grid">
+              <div class="price-option">
+                <span class="font-label-sm weight-label">100g Pack</span>
+                <div class="price-numbers">
+                  <span class="price-original">₹89</span>
+                  <span class="price-current">₹69</span>
+                </div>
+                <button class="delicacy-add-btn add-to-cart-quick" data-id="podi-putnala-100"
+                  data-name="Putnala Podi (100g)" data-price="69" data-img="Assets/Putnala_Podi.png"
+                  data-weight="100g">Add 100g</button>
+              </div>
+              <div class="price-option"
+                style="border-left: 1px solid rgba(90,51,27,0.1); padding-left: var(--spacing-sm);">
+                <span class="font-label-sm weight-label">250g Pack</span>
+                <div class="price-numbers">
+                  <span class="price-original">₹179</span>
+                  <span class="price-current">₹139</span>
+                </div>
+                <button class="delicacy-add-btn add-to-cart-quick" data-id="podi-putnala-250"
+                  data-name="Putnala Podi (250g)" data-price="139" data-img="Assets/Putnala_Podi.png"
+                  data-weight="250g">Add 250g</button>
+              </div>
+            </div>
+            <button class="btn-card add-to-cart-btn" data-id="podi-putnala-100" data-name="Putnala Podi (100g)"
+              data-price="69" data-img="Assets/Putnala_Podi.png" data-weight="100g">Add to Cart</button>
+          </div>
+
+          <!-- Andhra Gunpowder (Karam Podi) -->
+          <div class="product-card" data-name="andhra gunpowder karam podi nalla karam" data-id="podi-gunpowder">
+            <div class="product-img-container">
+              <img class="product-card-img" alt="Andhra Gunpowder" src="Assets/Andhra_Gunpowder.png">
+              <span class="font-label-sm ribbon ribbon-spicy">Spicy</span>
+            </div>
+            <h3 class="font-title-md product-name">Andhra Gunpowder</h3>
+            <div class="price-grid">
+              <div class="price-option">
+                <span class="font-label-sm weight-label">100g Pack</span>
+                <div class="price-numbers">
+                  <span class="price-original">₹102</span>
+                  <span class="price-current">₹79</span>
+                </div>
+                <button class="delicacy-add-btn add-to-cart-quick" data-id="podi-gunpowder-100"
+                  data-name="Andhra Gunpowder (100g)" data-price="79" data-img="Assets/Andhra_Gunpowder.png"
+                  data-weight="100g">Add 100g</button>
+              </div>
+              <div class="price-option"
+                style="border-left: 1px solid rgba(90,51,27,0.1); padding-left: var(--spacing-sm);">
+                <span class="font-label-sm weight-label">250g Pack</span>
+                <div class="price-numbers">
+                  <span class="price-original">₹199</span>
+                  <span class="price-current">₹159</span>
+                </div>
+                <button class="delicacy-add-btn add-to-cart-quick" data-id="podi-gunpowder-250"
+                  data-name="Andhra Gunpowder (250g)" data-price="159" data-img="Assets/Andhra_Gunpowder.png"
+                  data-weight="250g">Add 250g</button>
+              </div>
+            </div>
+            <button class="btn-card add-to-cart-btn" data-id="podi-gunpowder-100" data-name="Andhra Gunpowder (100g)"
+              data-price="79" data-img="Assets/Andhra_Gunpowder.png" data-weight="100g">Add to Cart</button>
+          </div>
+
+          <!-- Karivepaku Karapodi -->
+          <div class="product-card" data-name="karivepaku karapodi curry leaf spice" data-id="podi-karivepaku">
+            <div class="product-img-container">
+              <img class="product-card-img" alt="Karivepaku Karapodi" src="Assets/Karivepaku_Karapodi.png">
+              <span class="font-label-sm ribbon ribbon-healthy">Healthy</span>
+            </div>
+            <h3 class="font-title-md product-name">Karivepaku Karapodi</h3>
+            <div class="price-grid">
+              <div class="price-option">
+                <span class="font-label-sm weight-label">100g Pack</span>
+                <div class="price-numbers">
+                  <span class="price-original">₹115</span>
+                  <span class="price-current">₹89</span>
+                </div>
+                <button class="delicacy-add-btn add-to-cart-quick" data-id="podi-karivepaku-100"
+                  data-name="Karivepaku Karapodi (100g)" data-price="89" data-img="Assets/Karivepaku_Karapodi.png"
+                  data-weight="100g">Add 100g</button>
+              </div>
+              <div class="price-option"
+                style="border-left: 1px solid rgba(90,51,27,0.1); padding-left: var(--spacing-sm);">
+                <span class="font-label-sm weight-label">250g Pack</span>
+                <div class="price-numbers">
+                  <span class="price-original">₹211</span>
+                  <span class="price-current">₹169</span>
+                </div>
+                <button class="delicacy-add-btn add-to-cart-quick" data-id="podi-karivepaku-250"
+                  data-name="Karivepaku Karapodi (250g)" data-price="169" data-img="Assets/Karivepaku_Karapodi.png"
+                  data-weight="250g">Add 250g</button>
+              </div>
+            </div>
+            <button class="btn-card add-to-cart-btn" data-id="podi-karivepaku-100"
+              data-name="Karivepaku Karapodi (100g)" data-price="89" data-img="Assets/Karivepaku_Karapodi.png"
+              data-weight="100g">Add to Cart</button>
+          </div>
+
+          <!-- Kandi Podi -->
+          <div class="product-card" data-name="kandi podi dal powder" data-id="podi-kandi">
+            <div class="product-img-container">
+              <img class="product-card-img" alt="Kandi Podi" src="Assets/Kandi_Podi.png">
+            </div>
+            <h3 class="font-title-md product-name">Kandi Podi</h3>
+            <div class="price-grid">
+              <div class="price-option">
+                <span class="font-label-sm weight-label">100g Pack</span>
+                <div class="price-numbers">
+                  <span class="price-original">₹115</span>
+                  <span class="price-current">₹89</span>
+                </div>
+                <button class="delicacy-add-btn add-to-cart-quick" data-id="podi-kandi-100"
+                  data-name="Kandi Podi (100g)" data-price="89" data-img="Assets/Kandi_Podi.png" data-weight="100g">Add
+                  100g</button>
+              </div>
+              <div class="price-option"
+                style="border-left: 1px solid rgba(90,51,27,0.1); padding-left: var(--spacing-sm);">
+                <span class="font-label-sm weight-label">250g Pack</span>
+                <div class="price-numbers">
+                  <span class="price-original">₹230</span>
+                  <span class="price-current">₹179</span>
+                </div>
+                <button class="delicacy-add-btn add-to-cart-quick" data-id="podi-kandi-250"
+                  data-name="Kandi Podi (250g)" data-price="179" data-img="Assets/Kandi_Podi.png" data-weight="250g">Add
+                  250g</button>
+              </div>
+            </div>
+            <button class="btn-card add-to-cart-btn" data-id="podi-kandi-100" data-name="Kandi Podi (100g)"
+              data-price="89" data-img="Assets/Kandi_Podi.png" data-weight="100g">Add to Cart</button>
+          </div>
+
+          <!-- Nuvvu Karam -->
+          <div class="product-card" data-name="nuvvu karam sesame spice powder" data-id="podi-nuvvu">
+            <div class="product-img-container">
+              <img class="product-card-img" alt="Nuvvu Karam" src="Assets/Nuvvu_Karam.png">
+            </div>
+            <h3 class="font-title-md product-name">Nuvvu Karam</h3>
+            <div class="price-grid">
+              <div class="price-option">
+                <span class="font-label-sm weight-label">100g Pack</span>
+                <div class="price-numbers">
+                  <span class="price-original">₹128</span>
+                  <span class="price-current">₹99</span>
+                </div>
+                <button class="delicacy-add-btn add-to-cart-quick" data-id="podi-nuvvu-100"
+                  data-name="Nuvvu Karam (100g)" data-price="99" data-img="Assets/Nuvvu_Karam.png"
+                  data-weight="100g">Add 100g</button>
+              </div>
+              <div class="price-option"
+                style="border-left: 1px solid rgba(90,51,27,0.1); padding-left: var(--spacing-sm);">
+                <span class="font-label-sm weight-label">250g Pack</span>
+                <div class="price-numbers">
+                  <span class="price-original">₹252</span>
+                  <span class="price-current">₹199</span>
+                </div>
+                <button class="delicacy-add-btn add-to-cart-quick" data-id="podi-nuvvu-250"
+                  data-name="Nuvvu Karam (250g)" data-price="199" data-img="Assets/Nuvvu_Karam.png"
+                  data-weight="250g">Add 250g</button>
+              </div>
+            </div>
+            <button class="btn-card add-to-cart-btn" data-id="podi-nuvvu-100" data-name="Nuvvu Karam (100g)"
+              data-price="99" data-img="Assets/Nuvvu_Karam.png" data-weight="100g">Add to Cart</button>
+          </div>
+
+          <!-- Puliogare Powder -->
+          <div class="product-card" data-name="puliogare powder tamarind rice mix" data-id="podi-puliogare">
+            <div class="product-img-container">
+              <img class="product-card-img" alt="Puliogare Powder" src="Assets/Puliyogare_Powder.png">
+              <span class="font-label-sm ribbon ribbon-popular">Tangy</span>
+            </div>
+            <h3 class="font-title-md product-name">Puliogare Powder</h3>
+            <div class="price-grid">
+              <div class="price-option">
+                <span class="font-label-sm weight-label">100g Pack</span>
+                <div class="price-numbers">
+                  <span class="price-original">₹141</span>
+                  <span class="price-current">₹109</span>
+                </div>
+                <button class="delicacy-add-btn add-to-cart-quick" data-id="podi-puliogare-100"
+                  data-name="Puliogare Powder (100g)" data-price="109" data-img="Assets/Puliyogare_Powder.png"
+                  data-weight="100g">Add 100g</button>
+              </div>
+              <div class="price-option"
+                style="border-left: 1px solid rgba(90,51,27,0.1); padding-left: var(--spacing-sm);">
+                <span class="font-label-sm weight-label">250g Pack</span>
+                <div class="price-numbers">
+                  <span class="price-original">₹279</span>
+                  <span class="price-current">₹219</span>
+                </div>
+                <button class="delicacy-add-btn add-to-cart-quick" data-id="podi-puliogare-250"
+                  data-name="Puliogare Powder (250g)" data-price="219" data-img="Assets/Puliyogare_Powder.png"
+                  data-weight="250g">Add 250g</button>
+              </div>
+            </div>
+            <button class="btn-card add-to-cart-btn" data-id="podi-puliogare-100" data-name="Puliogare Powder (100g)"
+              data-price="109" data-img="Assets/Puliyogare_Powder.png" data-weight="100g">Add to Cart</button>
+          </div>
+
+          <!-- Catalog CTA Card -->
+          <div class="cta-card">
+            <span class="material-symbols-outlined cta-card-icon">restaurant_menu</span>
+            <h4 class="font-headline-lg cta-card-title">Want More?</h4>
+            <p class="cta-card-desc">Discover our full range of authentic spice powders and pickles, including Kobbari
+              Karam and specialized mixes.</p>
+            <a class="btn btn-accent" href="catalog.html"
+              style="padding: 10px 24px; font-size: 16px; text-decoration: none;">View Full Catalog</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Sweets & Delicacies Bento Section -->
+    <section class="sweets-section" id="sweets">
+      <div class="container-max">
+        <div class="sweets-title-center">
+          <h2 class="font-headline-lg">Sweets &amp; Special Delicacies</h2>
+          <div class="divider-gold"></div>
+        </div>
+
+        <div class="carousel-tabs">
+          <button class="carousel-tab-btn active" data-slide="0">Traditional Sweets</button>
+          <button class="carousel-tab-btn" data-slide="1">Special Delicacies</button>
+        </div>
+
+        <div class="carousel-viewport">
+          <div class="carousel-track" id="sweetsCarouselTrack">
+            
+            <!-- Slide 1: Sweets -->
+            <div class="carousel-slide">
+              <div class="sweets-slide-content">
+                <!-- Ravva Laddu -->
+                <div class="sweet-card" data-name="ravva laddu sweet semolina" data-id="sweet-ravva">
+                  <div class="sweet-img-wrapper">
+                    <img class="sweet-img" alt="Ravva Laddu" src="Assets/Ravva_Laddu.jpeg">
+                  </div>
+                  <div class="sweet-info">
+                    <div class="sweet-header">
+                      <h3 class="font-title-md sweet-name">Ravva Laddu</h3>
+                      <span class="font-label-sm tag-label">Pure Ghee</span>
+                    </div>
+                    <p class="font-body-md" style="color: var(--color-on-surface-variant); font-size: 14px;">Delicious melt-in-mouth semolina and coconut laddus made with pure ghee and dry fruits.</p>
+                    <div class="sweet-prices">
+                      <div class="sweet-price-row">
+                        <span class="font-body-md sweet-price-label">250g Pack</span>
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                          <span class="sweet-price-value">₹149 <span>₹189</span></span>
+                          <button class="delicacy-add-btn add-to-cart-quick" data-id="sweet-ravva-250"
+                            data-name="Ravva Laddu (250g)" data-price="149" data-img="Assets/Ravva_Laddu.jpeg"
+                            data-weight="250g" style="margin-top: 0;">Add +</button>
+                        </div>
+                      </div>
+                      <div class="sweet-price-row">
+                        <span class="font-body-md sweet-price-label">500g Pack</span>
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                          <span class="sweet-price-value">₹219 <span>₹289</span></span>
+                          <button class="delicacy-add-btn add-to-cart-quick" data-id="sweet-ravva-500"
+                            data-name="Ravva Laddu (500g)" data-price="219" data-img="Assets/Ravva_Laddu.jpeg"
+                            data-weight="500g" style="margin-top: 0;">Add +</button>
+                        </div>
+                      </div>
+                    </div>
+                    <button class="btn-sweet-add add-to-cart-btn" data-id="sweet-ravva-250" data-name="Ravva Laddu (250g)"
+                      data-price="149" data-img="Assets/Ravva_Laddu.jpeg" data-weight="250g">Add 250g to Bag</button>
+                  </div>
+                </div>
+
+                <!-- Sunnundalu -->
+                <div class="sweet-card" data-name="sunnundalu sweet urad dal laddu" data-id="sweet-sunnundalu">
+                  <div class="sweet-img-wrapper">
+                    <img class="sweet-img" alt="Sunnundalu" src="Assets/Sunnundalu.jpeg">
+                  </div>
+                  <div class="sweet-info">
+                    <div class="sweet-header">
+                      <h3 class="font-title-md sweet-name">Sunnundalu</h3>
+                      <span class="font-label-sm tag-label tag-label-secondary">High Protein</span>
+                    </div>
+                    <p class="font-body-md" style="color: var(--color-on-surface-variant); font-size: 14px;">Nutritious, traditional urad dal laddus sweetened with jaggery and loaded with aromatic ghee.</p>
+                    <div class="sweet-prices">
+                      <div class="sweet-price-row">
+                        <span class="font-body-md sweet-price-label">250g Pack</span>
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                          <span class="sweet-price-value">₹189 <span>₹249</span></span>
+                          <button class="delicacy-add-btn add-to-cart-quick" data-id="sweet-sunnundalu-250"
+                            data-name="Sunnundalu (250g)" data-price="189" data-img="Assets/Sunnundalu.jpeg"
+                            data-weight="250g" style="margin-top: 0;">Add +</button>
+                        </div>
+                      </div>
+                      <div class="sweet-price-row">
+                        <span class="font-body-md sweet-price-label">500g Pack</span>
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                          <span class="sweet-price-value">₹309 <span>₹399</span></span>
+                          <button class="delicacy-add-btn add-to-cart-quick" data-id="sweet-sunnundalu-500"
+                            data-name="Sunnundalu (500g)" data-price="309" data-img="Assets/Sunnundalu.jpeg"
+                            data-weight="500g" style="margin-top: 0;">Add +</button>
+                        </div>
+                      </div>
+                    </div>
+                    <button class="btn-sweet-add add-to-cart-btn" data-id="sweet-sunnundalu-250"
+                      data-name="Sunnundalu (250g)" data-price="189" data-img="Assets/Sunnundalu.jpeg"
+                      data-weight="250g">Add 250g to Bag</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Slide 2: Special Delicacies -->
+            <div class="carousel-slide">
+              <div class="sweets-slide-content">
+                <!-- Coco Bliss -->
+                <div class="sweet-card" data-name="coco bliss coconut pudding dessert" data-id="delicacy-cocobliss">
+                  <div class="sweet-img-wrapper">
+                    <img class="sweet-img" alt="Coco Bliss" src="Assets/cocoBliss.jpeg">
+                  </div>
+                  <div class="sweet-info">
+                    <div class="sweet-header">
+                      <h3 class="font-title-md sweet-name">Coco Bliss</h3>
+                      <span class="font-label-sm tag-label">Coconut Cream</span>
+                    </div>
+                    <p class="font-body-md" style="color: var(--color-on-surface-variant); font-size: 14px;">A premium transparent milk pudding dessert prepared with fresh coconut cream. Mildly sweet and extremely cooling.</p>
+                    <div class="sweet-prices">
+                      <div class="sweet-price-row">
+                        <span class="font-body-md sweet-price-label">100g Pack</span>
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                          <span class="sweet-price-value">₹79 <span>₹100</span></span>
+                          <button class="delicacy-add-btn add-to-cart-quick" data-id="delicacy-cocobliss"
+                            data-name="Coco Bliss (100g)" data-price="79" data-img="Assets/cocoBliss.jpeg"
+                            data-weight="100g" style="margin-top: 0;">Add +</button>
+                        </div>
+                      </div>
+                    </div>
+                    <button class="btn-sweet-add add-to-cart-btn" data-id="delicacy-cocobliss" data-name="Coco Bliss (100g)"
+                      data-price="79" data-img="Assets/cocoBliss.jpeg" data-weight="100g">Add 100g to Bag</button>
+                  </div>
+                </div>
+
+                <!-- Junnu -->
+                <div class="sweet-card" data-name="junnu steamed milk pudding colostrum" data-id="delicacy-junnu">
+                  <div class="sweet-img-wrapper">
+                    <img class="sweet-img" alt="Junnu" src="Assets/Junnu.png">
+                  </div>
+                  <div class="sweet-info">
+                    <div class="sweet-header">
+                      <h3 class="font-title-md sweet-name">Junnu</h3>
+                      <span class="font-label-sm tag-label tag-label-secondary">Colostrum Milk</span>
+                    </div>
+                    <p class="font-body-md" style="color: var(--color-on-surface-variant); font-size: 14px;">Steamed milk pudding made with premium colostrum milk, sweetened with organic jaggery, black pepper, and cardamom.</p>
+                    <div class="sweet-prices">
+                      <div class="sweet-price-row">
+                        <span class="font-body-md sweet-price-label">100g Pack</span>
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                          <span class="sweet-price-value">₹99 <span>₹120</span></span>
+                          <button class="delicacy-add-btn add-to-cart-quick" data-id="delicacy-junnu-100"
+                            data-name="Junnu (100g)" data-price="99" data-img="Assets/Junnu.png"
+                            data-weight="100g" style="margin-top: 0;">Add +</button>
+                        </div>
+                      </div>
+                      <div class="sweet-price-row">
+                        <span class="font-body-md sweet-price-label">500g Pack</span>
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                          <span class="sweet-price-value">₹499 <span>₹600</span></span>
+                          <button class="delicacy-add-btn add-to-cart-quick" data-id="delicacy-junnu-500"
+                            data-name="Junnu (500g)" data-price="499" data-img="Assets/Junnu.png"
+                            data-weight="500g" style="margin-top: 0;">Add +</button>
+                        </div>
+                      </div>
+                    </div>
+                    <button class="btn-sweet-add add-to-cart-btn" data-id="delicacy-junnu-100" data-name="Junnu (100g)"
+                      data-price="99" data-img="Assets/Junnu.png" data-weight="100g">Add 100g to Bag</button>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section / Our Story -->
+    <section class="container-max" id="about" style="padding: 80px 0; border-top: 1px solid rgba(114, 121, 113, 0.15);">
+      <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: var(--spacing-xl); align-items: center;">
+        <div>
+          <img alt="Preparing authentic spice powders" src="Assets/our_story_spice.png"
+            style="width: 100%; border-radius: var(--border-radius-xl); box-shadow: 0 10px 25px rgba(0,0,0,0.06); object-fit: cover; height: 350px;">
+        </div>
+        <div style="display: flex; flex-direction: column; gap: var(--spacing-md); align-items: flex-start;">
+          <span class="font-label-sm tag-label tag-label-secondary" style="font-size: 11px;">Our Roots</span>
+          <h2 class="font-headline-lg" style="color: var(--color-primary);">Bezawada Ruchulu Originals</h2>
+          <p class="font-body-lg" style="color: var(--color-on-surface-variant);">
+            Originating from the culinary hub of Vijayawada (Bezawada), our brand brings you original flavors crafted in
+            a traditional, authentic, clean kitchen environment.
+          </p>
+          <p class="font-body-md" style="color: var(--color-on-surface-variant); font-size: 15px;">
+            Every single batch of our Karapodi, Karam, Sweets, and Delicacies is prepared with strict supervision, using
+            top-tier grains, pulses, and locally farmed condiments. We grind and roast our ingredients in classic
+            heritage ratios so you enjoy the exact home-made taste of traditional Andhra meals. No added coloring, no
+            chemicals, just pure goodness.
+          </p>
+          <a class="btn btn-secondary" href="catalog.html" style="text-decoration: none;">Explore Full Product
+            Brochure</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust Signals Bar -->
+    <section class="trust-bar">
+      <div class="container-max trust-container">
+        <div class="trust-item">
+          <span class="material-symbols-outlined trust-icon">skillet</span>
+          <p class="trust-text">Perfect with rice, idli, dosa &amp; more!</p>
+        </div>
+        <div class="trust-item">
+          <span class="material-symbols-outlined trust-icon">potted_plant</span>
+          <p class="trust-text">100% Premium Ingredients Only</p>
+        </div>
+        <div class="trust-item">
+          <span class="material-symbols-outlined trust-icon">history_edu</span>
+          <p class="trust-text">Traditional Recipes, Timeless Taste</p>
+        </div>
+        <div class="trust-item">
+          <span class="material-symbols-outlined trust-icon">tap_and_play</span>
+          <p class="trust-text">From our Kitchen to your Home</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Order CTA Section -->
+    <section class="order-cta-section">
+      <div class="order-cta-container">
+        <h2 class="font-display-lg order-cta-title">Ready to Order?</h2>
+        <p class="font-body-lg order-cta-desc">Packed with care. Delivered with love. Taste the difference of handmade
+          goodness.</p>
+        <div class="order-buttons-group">
+          <a class="btn order-btn-wa"
+            href="https://wa.me/919061839999?text=Hello!%20I'd%20like%20to%20order%20some%20traditional%20spices%20and%20sweets."
+            target="_blank" rel="noopener">
+            <span class="material-symbols-outlined" style="margin-right: 8px;">call</span>
+            +91 906 183 9999
+          </a>
+          <span class="font-label-sm order-btn-or">OR</span>
+          <a class="btn order-btn-insta" href="https://instagram.com/bezawadaruchulu.originals" target="_blank"
+            rel="noopener">
+            <span class="material-symbols-outlined" style="margin-right: 8px;">chat</span>
+            DM on Instagram
+          </a>
+        </div>
+        <p class="font-label-sm free-del-msg">Free delivery on orders over ₹1000</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container-max footer-top">
+      <div class="footer-col">
+        <h3 class="font-headline-lg">Bezawada Ruchulu Originals</h3>
+        <p class="footer-desc">
+          Traditional Taste, Authentic Goodness. 100% Homemade and Vegetarian recipes from the heart of Vijayawada.
+        </p>
+        <div class="footer-social-links">
+          <a class="footer-social-btn" href="https://instagram.com/bezawadaruchulu.originals" target="_blank"
+            rel="noopener" aria-label="Instagram">
+            <span class="material-symbols-outlined">camera_alt</span>
+          </a>
+          <a class="footer-social-btn" href="https://wa.me/919061839999" target="_blank" rel="noopener"
+            aria-label="WhatsApp">
+            <span class="material-symbols-outlined">chat</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="font-title-md">Shop</h4>
+        <ul class="footer-links">
+          <li class="footer-link-item"><a href="#spices">Spice Powders</a></li>
+          <li class="footer-link-item"><a href="#sweets">Authentic Sweets</a></li>
+          <li class="footer-link-item"><a href="#sweets">Special Delicacies</a></li>
+          <li class="footer-link-item"><a href="catalog.html">Download Catalog</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="font-title-md">Quick Links</h4>
+        <ul class="footer-links">
+          <li class="footer-link-item"><a href="https://wa.me/919061839999">Bulk Orders</a></li>
+          <li class="footer-link-item"><a href="https://wa.me/919061839999">Support</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="font-title-md">Newsletter</h4>
+        <p class="footer-newsletter-text font-body-md" style="font-size: 14px;">Get updates on seasonal specials,
+          recipes, and discounts.</p>
+        <form class="newsletter-form" id="newsletterForm">
+          <input class="newsletter-input" placeholder="Your email" type="email" required>
+          <button class="newsletter-btn" type="submit" aria-label="Subscribe">
+            <span class="material-symbols-outlined">send</span>
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="font-label-sm footer-copyright">© 2026 Bezawada Ruchulu Originals. All Rights Reserved. Traditional
+        Taste, Authentic Goodness.</p>
+      <p class="font-label-sm footer-powered-by">Powered by <a href="https://www.mitrai.one/" target="_blank"
+          rel="noopener">mitrai.one</a></p>
+    </div>
+  </footer>
+
+  <!-- Slide-out Shopping Cart Drawer -->
+  <div class="cart-drawer-overlay" id="cartDrawerOverlay"></div>
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <h3 class="font-title-md cart-title">Your Bag</h3>
+      <button class="close-cart-btn" id="closeCartBtn" aria-label="Close Shopping Cart">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+
+    <!-- Cart Items Scroll Area -->
+    <div class="cart-items-wrapper" id="cartItemsContainer">
+      <!-- Items dynamically populated via JS -->
+      <p class="empty-cart-msg">Your bag is currently empty.</p>
+    </div>
+
+    <!-- Cart Summary & WhatsApp checkout footer -->
+    <div class="cart-footer">
+      <div class="cart-total-row">
+        <span class="cart-total-label">Subtotal</span>
+        <span class="cart-total-val" id="cartSubtotal">₹0</span>
+      </div>
+      <p class="font-label-sm" id="freeDeliveryNotice"
+        style="color: var(--color-secondary); text-align: right; margin-bottom: 4px; font-weight: 600;">Add ₹1000 for
+        Free Delivery</p>
+      <button class="cart-checkout-btn" id="checkoutBtn">
+        <span class="material-symbols-outlined" style="font-size: 20px;">chat</span>
+        Checkout on WhatsApp
+      </button>
+    </div>
+  </div>
+
+
+
+  <!-- Floating Instagram Button -->
+  <a href="https://instagram.com/bezawadaruchulu.originals" target="_blank" rel="noopener" class="floating-insta-btn" aria-label="Follow us on Instagram">
+    <span class="material-symbols-outlined icon-filled">camera_alt</span>
+    <span class="floating-insta-text">Follow Us</span>
+  </a>
+
+  <!-- JavaScript file -->
+  <script src="script.js"></script>
+</body>
+
+</html>
