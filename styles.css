@@ -1734,8 +1734,9 @@ footer {
   }
 
   .newsletter-form {
-    max-width: 320px;
-    margin: 0 auto;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
   }
 
   .cart-drawer {
@@ -1949,6 +1950,45 @@ footer {
   }
 
   .floating-insta-text {
+    display: none;
+  }
+}
+
+/* About / Our Story Section */
+.about-section {
+  padding: 80px 0;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: var(--spacing-xl);
+  align-items: center;
+}
+
+.about-image-wrapper {
+  display: block;
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  align-items: flex-start;
+}
+
+@media (max-width: 768px) {
+  .about-section {
+    padding: 40px 0;
+  }
+  
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+  
+  /* Hides the image in our story section on mobile view */
+  .about-image-wrapper {
     display: none;
   }
 }
