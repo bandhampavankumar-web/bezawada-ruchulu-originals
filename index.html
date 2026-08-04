@@ -717,6 +717,143 @@
     <span class="floating-insta-text">Follow Us</span>
   </a>
 
+  <!-- Exit Intent "We-Care" Feedback Popup -->
+  <div class="feedback-overlay" id="feedbackOverlay">
+    <div class="feedback-modal" id="feedbackModal">
+      <button class="feedback-close-btn" id="feedbackCloseBtn" aria-label="Close Feedback Modal">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+
+      <div class="feedback-header">
+        <span class="material-symbols-outlined feedback-heart-icon">favorite</span>
+        <h3 class="font-headline-lg feedback-title">We-Care</h3>
+        <p class="font-body-md feedback-subtitle">Your thoughts help us bring you authentic goodness.</p>
+      </div>
+
+      <!-- Auto-close progress countdown -->
+      <div class="feedback-progress-container">
+        <div class="feedback-progress-bar" id="feedbackProgressBar"></div>
+        <p class="feedback-timer-label" id="feedbackTimerLabel">Auto-closing in 5s...</p>
+      </div>
+
+      <form id="feedbackForm" class="feedback-form">
+        <!-- Step 1: Multiple Choice Questions -->
+        <div class="feedback-slide active" id="feedbackSlide1" data-step="1">
+          <!-- Category 1: Website Experience -->
+          <div class="feedback-group">
+            <h4 class="font-title-md feedback-group-title">Website Experience</h4>
+
+            <div class="question-row">
+              <span class="question-text">1. How would you rate the website's design?</span>
+              <div class="rating-stars">
+                <input type="radio" name="web_design" value="5" id="star5"><label for="star5">★</label>
+                <input type="radio" name="web_design" value="4" id="star4"><label for="star4">★</label>
+                <input type="radio" name="web_design" value="3" id="star3"><label for="star3">★</label>
+                <input type="radio" name="web_design" value="2" id="star2"><label for="star2">★</label>
+                <input type="radio" name="web_design" value="1" id="star1"><label for="star1">★</label>
+              </div>
+            </div>
+
+            <div class="question-row">
+              <span class="question-text">2. Was it easy to search and find products?</span>
+              <div class="radio-group">
+                <label><input type="radio" name="web_search" value="Yes" required> Yes</label>
+                <label><input type="radio" name="web_search" value="Somewhat"> Somewhat</label>
+                <label><input type="radio" name="web_search" value="No"> No</label>
+              </div>
+            </div>
+
+            <div class="question-row">
+              <span class="question-text">3. How was the page load speed?</span>
+              <div class="radio-group">
+                <label><input type="radio" name="web_speed" value="Fast" required> Fast</label>
+                <label><input type="radio" name="web_speed" value="Medium"> Medium</label>
+                <label><input type="radio" name="web_speed" value="Slow"> Slow</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Category 2: Products & Pricing -->
+          <div class="feedback-group" style="margin-top: 16px;">
+            <h4 class="font-title-md feedback-group-title">Products &amp; Pricing</h4>
+
+            <div class="question-row">
+              <span class="question-text">4. How is our product pricing?</span>
+              <div class="radio-group">
+                <label><input type="radio" name="prod_pricing" value="Reasonable" required> Reasonable</label>
+                <label><input type="radio" name="prod_pricing" value="Expensive"> Expensive</label>
+                <label><input type="radio" name="prod_pricing" value="Cheap"> Cheap</label>
+              </div>
+            </div>
+
+            <div class="question-row">
+              <span class="question-text">5. Satisfied with our variety of Podis &amp; Sweets?</span>
+              <div class="radio-group">
+                <label><input type="radio" name="prod_variety" value="Yes" required> Yes</label>
+                <label><input type="radio" name="prod_variety" value="No"> No</label>
+              </div>
+            </div>
+
+            <div class="question-row">
+              <span class="question-text">6. How likely are you to order from us?</span>
+              <div class="radio-group">
+                <label><input type="radio" name="order_intent" value="Very Likely" required> Very Likely</label>
+                <label><input type="radio" name="order_intent" value="Maybe"> Maybe</label>
+                <label><input type="radio" name="order_intent" value="Unlikely"> Unlikely</label>
+              </div>
+            </div>
+          </div>
+
+          <button type="button" class="btn btn-primary feedback-nav-btn" id="feedbackNextBtn"
+            style="margin-top: 20px; width: 100%;">Continue</button>
+        </div>
+
+        <!-- Step 2: Custom Comments & Personal Details -->
+        <div class="feedback-slide" id="feedbackSlide2" data-step="2" style="display: none;">
+          <div class="feedback-group">
+            <label for="feedbackComments" class="font-title-md feedback-group-title"
+              style="display: block; margin-bottom: 8px;">Do you have any suggestions or feedback for us?</label>
+            <textarea id="feedbackComments" class="feedback-textarea"
+              placeholder="Enter your suggestions, product requests, or other thoughts..."></textarea>
+          </div>
+
+          <div class="feedback-group" style="margin-top: 16px;">
+            <h4 class="font-title-md feedback-group-title" style="margin-bottom: 8px;">Your Details (Optional)</h4>
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <input type="text" id="feedbackName" class="feedback-input" placeholder="Your Name">
+              <input type="email" id="feedbackEmail" class="feedback-input" placeholder="Your Email">
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 12px; margin-top: 24px;">
+            <button type="button" class="btn btn-secondary feedback-nav-btn" id="feedbackBackBtn"
+              style="flex: 1;">Back</button>
+            <button type="submit" class="btn btn-primary feedback-nav-btn" id="feedbackSubmitBtn"
+              style="flex: 1;">Submit Feedback</button>
+          </div>
+        </div>
+      </form>
+
+      <!-- Ask-Once Anonymous Dialog -->
+      <div class="anon-dialog-overlay" id="anonDialogOverlay">
+        <div class="anon-dialog">
+          <h4 class="font-title-md dialog-title" style="color: var(--color-primary); margin-bottom: 8px;">Would you like
+            to share your contact details?</h4>
+          <p class="font-body-md dialog-desc"
+            style="font-size: 14px; color: var(--color-on-surface-variant); margin-bottom: 20px; line-height: 1.5;">This
+            helps us reach back to you with custom offers, answers, or updates. You can also submit anonymously.</p>
+          <div style="display: flex; gap: 12px;">
+            <button type="button" class="btn btn-secondary" id="anonDialogFillBtn"
+              style="flex: 1; padding: 10px 16px; font-size: 15px;">Add Details</button>
+            <button type="button" class="btn btn-primary" id="anonDialogSubmitBtn"
+              style="flex: 1; padding: 10px 16px; font-size: 15px;">Submit Anonymously</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
   <!-- JavaScript file -->
   <script src="script.js"></script>
 </body>
