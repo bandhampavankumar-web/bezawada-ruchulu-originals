@@ -1,5 +1,8 @@
 // Bezawada Ruchulu Originals (BRO) - Interactive Script
 
+// Google Apps Script Web App Endpoint URL (handles both Newsletter and We-Care Feedback)
+const GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycbxI89I_XiuxP3phOxyNixQdYPoayANaolh9mSO8KINPLLY13rGElC7ZQWDUZ-YATdx-4Q/exec";
+
 // Shopping Cart State
 let cart = [];
 
@@ -18,6 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Initial render of cart & badge count
   renderCart();
   setupEventListeners();
+  initFeedbackPopup();
 });
 
 // Setup Event Listeners
@@ -124,7 +128,7 @@ function setupEventListeners() {
       submitBtn.disabled = true;
       emailInput.disabled = true;
 
-      const scriptURL = "https://script.google.com/macros/s/AKfycbxI89I_XiuxP3phOxyNixQdYPoayANaolh9mSO8KINPLLY13rGElC7ZQWDUZ-YATdx-4Q/exec";
+      const scriptURL = GOOGLE_SHEET_URL;
 
       fetch(scriptURL, {
         method: "POST",
@@ -137,6 +141,14 @@ function setupEventListeners() {
       .then(() => {
         alert("Thank you for subscribing! Your email has been added to our newsletter sheet.");
         newsletterForm.reset();
+        
+        // Trigger We-Care feedback popup after subscription
+        setTimeout(() => {
+          if (typeof window.showFeedbackPopup === "function") {
+            sessionStorage.removeItem("bro-feedback-shown");
+            window.showFeedbackPopup();
+          }
+        }, 800);
       })
       .catch((error) => {
         console.error("Error subscribing:", error);
@@ -429,4 +441,240 @@ function checkoutWhatsApp() {
 
   // Open WhatsApp in new tab
   window.open(waURL, "_blank");
+}
+
+// Exit Intent & Mobile Inactivity Feedback Popup ("We-Care")
+function initFeedbackPopup() {
+  const overlay = document.getElementById("feedbackOverlay");
+  const modal = document.getElementById("feedbackModal");
+  const closeBtn = document.getElementById("feedbackCloseBtn");
+  const form = document.getElementById("feedbackForm");
+  const progressBar = document.getElementById("feedbackProgressBar");
+  const timerLabel = document.getElementById("feedbackTimerLabel");
+  
+  // Navigation slides
+  const slide1 = document.getElementById("feedbackSlide1");
+  const slide2 = document.getElementById("feedbackSlide2");
+  const nextBtn = document.getElementById("feedbackNextBtn");
+  const backBtn = document.getElementById("feedbackBackBtn");
+  
+  // Anonymous warning dialog
+  const anonOverlay = document.getElementById("anonDialogOverlay");
+  const anonFillBtn = document.getElementById("anonDialogFillBtn");
+  const anonSubmitBtn = document.getElementById("anonDialogSubmitBtn");
+
+  if (!overlay || !modal || !form) return;
+
+  let autoCloseInterval = null;
+  let countdownRemaining = 5.0;
+  let timerPaused = false;
+  let anonDialogPrompted = false;
+
+  // Expose function globally to invoke after newsletter subscription
+  window.showFeedbackPopup = showFeedback;
+
+  // Open the modal
+  function showFeedback(force = false) {
+    if (!force && sessionStorage.getItem("bro-feedback-shown")) return;
+    sessionStorage.setItem("bro-feedback-shown", "true");
+    
+    form.reset();
+    slide1.style.display = "block";
+    slide2.style.display = "none";
+    anonOverlay.style.display = "none";
+    anonDialogPrompted = false;
+
+    // Show popup
+    overlay.classList.add("active");
+    startAutoCloseTimer();
+  }
+
+  // Start 5s auto-close progress bar countdown
+  function startAutoCloseTimer() {
+    countdownRemaining = 5.0;
+    progressBar.style.transform = "scaleX(1)";
+    progressBar.style.display = "block";
+    timerLabel.textContent = "Auto-closing in 5.0s...";
+    timerPaused = false;
+    
+    const intervalMs = 100;
+    autoCloseInterval = setInterval(() => {
+      if (timerPaused) return;
+      
+      countdownRemaining -= (intervalMs / 1000);
+      if (countdownRemaining <= 0) {
+        countdownRemaining = 0;
+        clearInterval(autoCloseInterval);
+        closeFeedback();
+      } else {
+        progressBar.style.transform = `scaleX(${countdownRemaining / 5.0})`;
+        timerLabel.textContent = `Auto-closing in ${countdownRemaining.toFixed(1)}s...`;
+      }
+    }, intervalMs);
+  }
+
+  // Pause the timer on interaction
+  function pauseTimer() {
+    if (timerPaused) return;
+    timerPaused = true;
+    clearInterval(autoCloseInterval);
+    progressBar.style.display = "none";
+    timerLabel.textContent = "Auto-close paused.";
+  }
+
+  // Close the popup
+  function closeFeedback() {
+    overlay.classList.remove("active");
+    clearInterval(autoCloseInterval);
+    timerPaused = true;
+  }
+
+  // Event listener: Mouse Exit Intent (desktop version, triggers when mouse leaves document towards window bounds)
+  document.addEventListener("mouseleave", (e) => {
+    if (window.innerWidth > 768) {
+      if (e.clientY < 50 || e.clientY <= 0 || e.clientX <= 0 || e.clientX >= window.innerWidth) {
+        showFeedback();
+      }
+    }
+  });
+
+  // Event listener: Mobile Inactivity Fallback (mobile version)
+  // Auto triggers after 25s of session time on mobile screen sizes
+  setTimeout(() => {
+    if (window.innerWidth <= 768) {
+      showFeedback();
+    }
+  }, 25000);
+
+  // Click & hover events to close or pause timer
+  closeBtn.addEventListener("click", closeFeedback);
+  overlay.addEventListener("click", (e) => {
+    if (e.target === overlay) {
+      closeFeedback();
+    }
+  });
+
+  // Touch and hover pauses countdown
+  modal.addEventListener("mouseenter", pauseTimer);
+  modal.addEventListener("touchstart", pauseTimer, { passive: true });
+  modal.addEventListener("click", pauseTimer);
+  form.addEventListener("focusin", pauseTimer);
+
+  // Multi-step form navigation
+  nextBtn.addEventListener("click", () => {
+    // Validate Step 1 selection requirements
+    const requiredInputs = slide1.querySelectorAll("[required]");
+    let allValid = true;
+    
+    // Group required fields by name
+    const radioNames = new Set();
+    requiredInputs.forEach(input => {
+      if (input.type === "radio") radioNames.add(input.name);
+    });
+
+    radioNames.forEach(name => {
+      const selected = slide1.querySelector(`input[name="${name}"]:checked`);
+      if (!selected) {
+        allValid = false;
+        // Visual indicator on unanswered row
+        const radio = slide1.querySelector(`input[name="${name}"]`);
+        if (radio) {
+          const row = radio.closest(".question-row");
+          if (row) {
+            row.style.borderColor = "var(--color-error)";
+            setTimeout(() => {
+              row.style.borderColor = "rgba(114, 121, 113, 0.1)";
+            }, 2000);
+          }
+        }
+      }
+    });
+
+    if (!allValid) {
+      alert("Please answer all multiple-choice questions before continuing!");
+      return;
+    }
+
+    slide1.style.display = "none";
+    slide2.style.display = "block";
+  });
+
+  backBtn.addEventListener("click", () => {
+    slide2.style.display = "none";
+    slide1.style.display = "block";
+  });
+
+  // Form Submission
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    pauseTimer();
+
+    const name = document.getElementById("feedbackName").value.trim();
+    const email = document.getElementById("feedbackEmail").value.trim();
+
+    // Ask once if Name & Email are empty
+    if (!name && !email && !anonDialogPrompted) {
+      anonDialogPrompted = true;
+      anonOverlay.style.display = "flex";
+      return;
+    }
+
+    submitFormPayload();
+  });
+
+  // Prompt action handles
+  anonFillBtn.addEventListener("click", () => {
+    anonOverlay.style.display = "none";
+    document.getElementById("feedbackName").focus();
+  });
+
+  anonSubmitBtn.addEventListener("click", () => {
+    anonOverlay.style.display = "none";
+    submitFormPayload();
+  });
+
+  // Post JSON details to Google Sheet App Webhook
+  function submitFormPayload() {
+    const sBtn = document.getElementById("feedbackSubmitBtn");
+    sBtn.disabled = true;
+    sBtn.textContent = "Saving...";
+
+    const designEl = form.querySelector('input[name="web_design"]:checked');
+    const searchEl = form.querySelector('input[name="web_search"]:checked');
+    const speedEl = form.querySelector('input[name="web_speed"]:checked');
+    const priceEl = form.querySelector('input[name="prod_pricing"]:checked');
+    const varietyEl = form.querySelector('input[name="prod_variety"]:checked');
+    const intentEl = form.querySelector('input[name="order_intent"]:checked');
+
+    const payload = {
+      type: "feedback",
+      web_design: designEl ? designEl.value : "N/A",
+      web_search: searchEl ? searchEl.value : "N/A",
+      web_speed: speedEl ? speedEl.value : "N/A",
+      prod_pricing: priceEl ? priceEl.value : "N/A",
+      prod_variety: varietyEl ? varietyEl.value : "N/A",
+      order_intent: intentEl ? intentEl.value : "N/A",
+      comments: document.getElementById("feedbackComments").value.trim(),
+      name: document.getElementById("feedbackName").value.trim() || "Anonymous",
+      email: document.getElementById("feedbackEmail").value.trim() || "Anonymous"
+    };
+
+    fetch(GOOGLE_SHEET_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(payload)
+    })
+    .then(() => {
+      alert("Thank you for your valuable feedback! We Care about your experience.");
+      closeFeedback();
+    })
+    .catch((error) => {
+      console.error("Error submitting feedback:", error);
+      alert("Thank you for your feedback!");
+      closeFeedback();
+    });
+  }
 }
