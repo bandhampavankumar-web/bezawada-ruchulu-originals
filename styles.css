@@ -1992,3 +1992,305 @@ footer {
     display: none;
   }
 }
+
+/* We-Care Exit Intent Feedback Modal */
+.feedback-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(11, 46, 23, 0.45);
+  backdrop-filter: blur(6px);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  opacity: 0;
+  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.feedback-overlay.active {
+  display: flex;
+  opacity: 1;
+}
+
+.feedback-modal {
+  background-color: var(--color-background);
+  border-radius: var(--border-radius-xl);
+  border: 1px solid var(--color-outline-variant);
+  width: 92%;
+  max-width: 520px;
+  padding: var(--spacing-md) var(--spacing-md) 28px var(--spacing-md);
+  box-shadow: 0 24px 50px rgba(11, 46, 23, 0.18);
+  position: relative;
+  max-height: 88vh;
+  overflow-y: auto;
+  transform: translateY(30px);
+  opacity: 0;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
+}
+
+.feedback-overlay.active .feedback-modal {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.feedback-close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--color-on-surface-variant);
+  opacity: 0.7;
+  transition: var(--transition-smooth);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.feedback-close-btn:hover {
+  opacity: 1;
+  background-color: var(--color-surface-container);
+  color: var(--color-primary);
+}
+
+.feedback-header {
+  text-align: center;
+  margin-bottom: var(--spacing-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.feedback-heart-icon {
+  color: var(--color-error);
+  font-size: 28px;
+  animation: heartbeat 1.5s infinite ease-in-out;
+}
+
+@keyframes heartbeat {
+  0% { transform: scale(1); }
+  14% { transform: scale(1.12); }
+  28% { transform: scale(1); }
+  42% { transform: scale(1.12); }
+  70% { transform: scale(1); }
+}
+
+.feedback-title {
+  color: var(--color-primary);
+  font-size: 24px;
+  font-weight: 700;
+  margin: 4px 0 0 0;
+}
+
+.feedback-subtitle {
+  font-size: 13px;
+  color: var(--color-on-surface-variant);
+  margin: 0;
+  max-width: 380px;
+}
+
+/* Progress Countdown */
+.feedback-progress-container {
+  width: 100%;
+  height: 4px;
+  background-color: var(--color-surface-container);
+  border-radius: var(--border-radius-full);
+  margin-bottom: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.feedback-progress-bar {
+  height: 100%;
+  width: 100%;
+  background-color: var(--color-secondary);
+  transform-origin: left;
+  transform: scaleX(1);
+}
+
+.feedback-timer-label {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 10px;
+  text-align: right;
+  color: var(--color-on-surface-variant);
+  opacity: 0.7;
+  margin-top: 4px;
+  display: block;
+}
+
+/* Form Styles */
+.feedback-group-title {
+  color: var(--color-primary);
+  font-size: 15px;
+  font-weight: 700;
+  border-bottom: 1px solid var(--color-outline-variant);
+  padding-bottom: 6px;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.question-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+  border-bottom: 1px dashed rgba(114, 121, 113, 0.1);
+}
+
+.question-text {
+  font-size: 13.5px;
+  color: var(--color-on-surface);
+  font-weight: 500;
+}
+
+/* Star Rating System */
+.rating-stars {
+  display: inline-flex;
+  flex-direction: row-reverse;
+  gap: 3px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.rating-stars input[type="radio"] {
+  display: none;
+}
+
+.rating-stars label {
+  color: var(--color-surface-container-highest);
+  transition: var(--transition-smooth);
+}
+
+.rating-stars label:hover,
+.rating-stars label:hover ~ label,
+.rating-stars input[type="radio"]:checked ~ label {
+  color: var(--color-gold);
+}
+
+/* Radio Selection Styles */
+.radio-group {
+  display: flex;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.radio-group label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  cursor: pointer;
+  color: var(--color-on-surface-variant);
+  font-weight: 500;
+}
+
+.radio-group input[type="radio"] {
+  accent-color: var(--color-primary);
+  cursor: pointer;
+  width: 14px;
+  height: 14px;
+}
+
+/* Step 2 Inputs */
+.feedback-textarea {
+  width: 100%;
+  height: 80px;
+  background-color: var(--color-surface-container-low);
+  border: 1px solid var(--color-outline);
+  border-radius: var(--border-radius-lg);
+  padding: 10px;
+  font-family: 'Source Serif 4', serif;
+  font-size: 14px;
+  color: var(--color-on-surface);
+  outline: none;
+  resize: none;
+  transition: var(--transition-smooth);
+}
+
+.feedback-textarea:focus {
+  border-color: var(--color-primary);
+  background-color: var(--color-surface-container-lowest);
+}
+
+.feedback-input {
+  width: 100%;
+  background-color: var(--color-surface-container-low);
+  border: 1px solid var(--color-outline);
+  border-radius: var(--border-radius-lg);
+  padding: 10px;
+  font-family: 'Source Serif 4', serif;
+  font-size: 14px;
+  color: var(--color-on-surface);
+  outline: none;
+  transition: var(--transition-smooth);
+}
+
+.feedback-input:focus {
+  border-color: var(--color-primary);
+  background-color: var(--color-surface-container-lowest);
+}
+
+.feedback-nav-btn {
+  padding: 12px var(--spacing-md);
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: var(--border-radius-lg);
+}
+
+/* Ask-Once Anon Confirmation dialog */
+.anon-dialog-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(251, 249, 248, 0.96);
+  border-radius: var(--border-radius-xl);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 100;
+  animation: fadeInFeedback 0.25s ease;
+}
+
+.anon-dialog {
+  max-width: 400px;
+  text-align: center;
+}
+
+@keyframes fadeInFeedback {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Responsive Modal Heights */
+@media (max-width: 580px) {
+  .feedback-modal {
+    padding: 16px;
+    max-height: 94vh;
+  }
+  
+  .question-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 10px 0;
+  }
+  
+  .radio-group {
+    width: 100%;
+    justify-content: flex-start;
+    gap: 16px;
+  }
+}
