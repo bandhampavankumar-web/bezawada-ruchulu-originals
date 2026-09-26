@@ -1,0 +1,16 @@
+{
+  "name": "BRO Daily Sales Tracker",
+  "short_name": "BRO Sales",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f7f7f3",
+  "theme_color": "#163f2c",
+  "icons": [
+    {
+      "src": "bro-logo.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
