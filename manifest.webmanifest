@@ -1,7 +1,8 @@
 {
   "name": "BRO Daily Sales Tracker",
   "short_name": "BRO Sales",
-  "start_url": "./BRO_Daily_Sales_Invoice_Tracker.html",
+  "start_url": "./BRO_Daily_Sales_Invoice_Tracker_fixed.html",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#f7f7f3",
   "theme_color": "#163f2c",
