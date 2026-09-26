@@ -1,7 +1,10 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="apple-mobile-web-app-title" content="BRO Sales"><meta name="mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" href="bro-logo.png"><link rel="icon" type="image/png" href="bro-logo.png">
+<link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#163f2c"><title>BRO Daily Sales Tracker</title>
 <style>
 :root{--green:#163f2c;--brown:#5b321f;--gold:#d3a52e;--orange:#ef6c2f;--bg:#f7f7f3;--card:#fff;--ink:#18221d;--muted:#6b756f;--line:#e3e7e3;--danger:#b42318;--ok:#18794e}
@@ -9,9 +12,10 @@
 header{background:var(--green);color:#fff;padding:10px 14px calc(12px + env(safe-area-inset-top));position:sticky;top:0;z-index:20}.brand{display:flex;align-items:center;gap:10px}.brand img{width:54px;height:54px;object-fit:contain;border-radius:50%;background:#fff}.brand-title{font-weight:800;font-size:19px;line-height:1.15}.brand-sub{font-size:12px;color:#dce8e0;margin-top:2px}.date{font-size:12px;color:#dce8e0;margin-top:7px}
 main{max-width:760px;margin:auto;padding:14px 14px 100px}.screen{display:none}.screen.active{display:block}.summary{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:12px}.card{background:var(--card);border:1px solid var(--line);border-radius:15px;padding:13px;box-shadow:0 1px 2px #00000008}.label{font-size:11px;color:var(--muted)}.big{font-size:23px;font-weight:800;margin-top:2px}.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}.btn{border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:10px;padding:10px 12px;font:inherit;font-weight:750}.btn.primary{background:var(--green);border-color:var(--green);color:#fff}.btn.accent{background:var(--orange);border-color:var(--orange);color:#fff}.btn.danger{color:var(--danger)}.btn:disabled{opacity:.45}
 .section-title{font-size:14px;font-weight:850;margin:16px 2px 8px}.menu{display:flex;flex-direction:column;gap:9px}.item{display:grid;grid-template-columns:1fr auto;gap:9px;align-items:center}.name{font-weight:800}.meta{font-size:12px;color:var(--muted);margin-top:3px}.actions{display:flex;align-items:center;gap:7px}.qty{min-width:28px;text-align:center;font-weight:850}.sell{background:var(--green);color:#fff;border:0;border-radius:11px;padding:11px 14px;font-weight:850}.minus{background:#fff;border:1px solid var(--line);border-radius:9px;padding:8px 11px;font-weight:800}.cartrow{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;padding:9px 0}.line-total{font-weight:800}.total{display:flex;justify-content:space-between;font-weight:900;font-size:19px;padding-top:12px}.empty{color:var(--muted);text-align:center;padding:25px 5px}.notice{background:#fff8e7;border-color:#f0d58b}.success{background:#ecfdf3;border-color:#b7e5c8;color:#12663e}.small{font-size:12px;color:var(--muted)}
-input{width:100%;padding:11px;border:1px solid #cfd6d1;border-radius:10px;font:inherit;margin-top:5px;background:#fff}label{font-size:13px;font-weight:700;display:block;margin-bottom:10px}.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}.invoice-head{display:flex;justify-content:space-between;gap:10px;margin-bottom:10px}.invoice-no{font-weight:850}.history-item{display:flex;justify-content:space-between;gap:10px;align-items:center}.history-item+.history-item{margin-top:8px}.muted{color:var(--muted)}
+input{width:100%;padding:11px;border:1px solid #cfd6d1;border-radius:10px;font:inherit;font-size:16px;margin-top:5px;background:#fff}input[type="tel"],input[type="text"],input[type="number"]{font-size:16px}label{font-size:13px;font-weight:700;display:block;margin-bottom:10px}.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}.invoice-head{display:flex;justify-content:space-between;gap:10px;margin-bottom:10px}.invoice-no{font-weight:850}.history-item{display:flex;justify-content:space-between;gap:10px;align-items:center}.history-item+.history-item{margin-top:8px}.muted{color:var(--muted)}
 footer{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--line);padding:8px 10px calc(8px + env(safe-area-inset-bottom));display:flex;gap:7px;z-index:30}footer .btn{flex:1}.hidden{display:none!important}
 .invoice-print{display:none}dialog{border:0;border-radius:16px;padding:0;width:min(92vw,520px);box-shadow:0 20px 70px #0005}dialog::backdrop{background:#0007}
+html,body{overscroll-behavior-x:none}input,button{touch-action:manipulation}
 @media print{body{background:#fff}.no-print{display:none!important}.invoice-print{display:block!important;padding:20px;max-width:720px;margin:auto}.print-logo{width:80px;height:80px}.print-brand{display:flex;align-items:center;gap:14px;border-bottom:2px solid #163f2c;padding-bottom:10px}.print-title{font-size:24px;font-weight:900}.print-meta{margin:12px 0}.print-table{width:100%;border-collapse:collapse}.print-table th,.print-table td{border-bottom:0;padding:7px;text-align:left}.print-table .r{text-align:right}.print-total{text-align:right;font-size:18px;font-weight:900;margin-top:12px}}
 </style></head>
 <body>
@@ -35,7 +39,7 @@ footer{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px sol
 <section id="historyScreen" class="screen"><div class="toolbar"><button class="btn" id="historyBack">← Dashboard</button></div><div class="section-title">Invoice history</div><div id="historyList"></div></section>
 <section id="viewScreen" class="screen"><div class="toolbar"><button class="btn" id="viewBack">← Back</button></div><div id="viewInvoice"></div></section>
 </main>
-<footer class="no-print"><button class="btn" id="dashNav">Dashboard</button><button class="btn accent" id="newNav">＋ New Invoice</button></footer>
+<footer class="no-print"><button class="btn" id="dashNav">⌂&nbsp; Dashboard</button><button class="btn accent" id="newNav">＋&nbsp; New Invoice</button><button class="btn primary hidden" id="submitInvoiceFtr" onclick="submitInvoice()">✓&nbsp; Save Invoice</button></footer>
 <dialog id="spiceDialog"><div class="card" style="margin:0;border:0;box-shadow:none"><div class="invoice-head"><div><div class="label">Spices & Podis</div><div class="invoice-no">Add item to invoice</div></div><button class="btn" type="button" onclick="spiceDialog.close()">×</button></div><label>Item name<input id="spiceName" list="spiceOptions" placeholder="Search existing or type a new item" autocomplete="off"><datalist id="spiceOptions"></datalist></label><label>Price per unit (₹)<input id="spicePrice" type="number" min="0" step="0.01" inputmode="decimal" placeholder="Enter price"></label><div class="toolbar"><button class="btn" type="button" onclick="spiceDialog.close()">Cancel</button><button class="btn primary" type="button" id="addSpiceConfirm">Add to invoice</button></div><div class="small">Existing spice/podi names are remembered for faster selection. You can type a new name here and it will be added to the list.</div></div></dialog>
 <div id="printArea" class="invoice-print"></div>
 <script>
@@ -63,7 +67,7 @@ const save=()=>localStorage.setItem(KEY,JSON.stringify(db));
 const esc=x=>String(x??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
 function invoiceNoFor(date){db.seq[date]=(db.seq[date]||0)+1;return `BRO-${date.replaceAll('-','')}-${String(db.seq[date]).padStart(3,'0')}`}
 function invoicesToday(){return db.invoices.filter(x=>x.date===todayKey()&&!x.cancelled)}
-function show(id){document.querySelectorAll('.screen').forEach(x=>x.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo(0,0)}
+function show(id){document.querySelectorAll('.screen').forEach(x=>x.classList.remove('active'));document.getElementById(id).classList.add('active');const f=document.getElementById('submitInvoiceFtr');f.classList.toggle('hidden',id!=='invoiceScreen');window.scrollTo(0,0)}
 function renderHeader(){document.getElementById('logo').src=LOGO;document.getElementById('today').textContent=todayDate()}
 function renderDashboard(){
  const inv=invoicesToday(), revenue=inv.reduce((a,x)=>a+x.total,0);document.getElementById('invoiceCount').textContent=inv.length;document.getElementById('revenue').textContent=money(revenue);
@@ -193,5 +197,5 @@ function exportExcel(){
  const blob=new Blob([xls],{type:'application/vnd.ms-excel'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`BRO_Sales_${todayKey()}.xls`;a.click();URL.revokeObjectURL(a.href)
 }
 document.getElementById('addSpiceConfirm').onclick=addSpiceToInvoice;document.getElementById('newInvoiceBtn').onclick=openNewInvoice;document.getElementById('newNav').onclick=openNewInvoice;document.getElementById('submitInvoice').onclick=submitInvoice;document.getElementById('exportBtn').onclick=exportExcel;document.getElementById('dashNav').onclick=()=>{renderDashboard();show('dashboard')};document.getElementById('backBtn').onclick=()=>{renderDashboard();show('dashboard')};document.getElementById('historyBtn').onclick=()=>{renderHistory();show('historyScreen')};document.getElementById('historyBack').onclick=()=>{renderDashboard();show('dashboard')};document.getElementById('viewBack').onclick=()=>{renderDashboard();show('dashboard')};
-renderHeader();renderDashboard();
+renderHeader();renderDashboard();show('dashboard');
 </script></body></html>
